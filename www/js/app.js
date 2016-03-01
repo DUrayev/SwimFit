@@ -51,7 +51,8 @@ swimFitApp.config(['$stateProvider', '$urlRouterProvider',
       url: '/add',
       views: {
         'add-tab': {
-          templateUrl: 'templates/add.html'
+          templateUrl: 'templates/add.html',
+          controller: 'AddCtrl'
         }
       }
     })
@@ -59,7 +60,8 @@ swimFitApp.config(['$stateProvider', '$urlRouterProvider',
       url: '/dashboard',
       views: {
         'dashboard-tab': {
-          templateUrl: 'templates/dashboard.html'
+          templateUrl: 'templates/dashboard.html',
+          controller: 'DashboardCtrl'
         }
       }
     });
