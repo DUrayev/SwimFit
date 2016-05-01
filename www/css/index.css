@@ -94,3 +94,11 @@ ion-content:after {
     position: absolute;
     bottom: 40px;
 }
+
+.bar-chart-wrapper, .doughnut-chart-wrapper{
+    padding-top: 30px; 
+}
+
+.bar-chart-wrapper h3, .doughnut-chart-wrapper h3 {
+    text-align: center;
+}

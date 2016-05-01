@@ -37,25 +37,27 @@
 						</div>
 						<div class="col">{{statistics.averageInMonth}} m</div>
 					</div>
-					<ion-checkbox ng-model="isChecked">Checkbox Label</ion-checkbox>
-
 					<div class="row statistic-total">
 						<div class="col"><span class="statistic-block-header">You swam <span> <span class="statistic-block-value-total">{{statistics.totalDistance}} m</div>
 					</div>
 		    	</div>
 		  	</ion-slide>
 		  	<ion-slide>
-		    	<div class="box">
-		    		<div class="bar-chart-wrapper">
-		    			<!-- <canvas id="bar" class="chart chart-bar" 
-		    					chart-data="bar.data" chart-labels="bar.labels" chart-series="bar.series">
-						</canvas> -->
+		    	<div class="box statistic-slide">
+		    		<div class="">
+		    			<div class="doughnut-chart-wrapper">
+		    				<h3>Distance per day of week</h3>
+							<canvas id="doughnut" class="chart chart-doughnut"
+							  chart-data="doughnut.data" chart-labels="doughnut.labels">
+							</canvas> 
+						</div>
+						<div class="bar-chart-wrapper">
+							<h3>Distance per last 6 month</h3>
+							<canvas id="bar" class="chart chart-bar" 
+			    					chart-data="bar.data" chart-labels="bar.labels" chart-series="bar.series">
+							</canvas>
+						</div>
 		    		</div>
-		    	</div>
-		  	</ion-slide>
-	  		<ion-slide>
-		    	<div class="box">
-		    		<h1>PINK {{index}}</h1>
 		    	</div>
 		  	</ion-slide>
 		</ion-slide-box>
