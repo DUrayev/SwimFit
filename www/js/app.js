@@ -2,13 +2,24 @@
 
 /* App Module */
 
+var db = null;
 var swimFitApp = angular.module('swimFitApp', [
   'ngRoute',
   'swimFitControllers',
   'swimFitFilters',
   'swimFitServices',
-  'ionic'
-]);
+  'ionic',
+  'ngCordova',
+  'ionic-datepicker',
+  'ion-affix'
+]).run(function($ionicPlatform, $cordovaSQLite){
+  // $ionicPlatform.ready(function() {
+  //   alert(window.sqlitePlugin);
+  //     db = $cordovaSQLite.openDB({name: "my.db", location: 'default'});
+  //     alert(db);
+  //     $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS people (id integer primary key, firstname text, lastname text)");
+  // });
+});
 
 // swimFitApp.config(['$routeProvider',
 //   function($routeProvider) {
@@ -61,7 +72,8 @@ swimFitApp.config(['$stateProvider', '$urlRouterProvider',
       views: {
         'dashboard-tab': {
           templateUrl: 'templates/dashboard.html',
-          controller: 'DashboardCtrl'
+          controller: 'DashboardCtrl',
+          reload: true
         }
       }
     });

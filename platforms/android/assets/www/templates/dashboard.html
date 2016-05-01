@@ -1,0 +1,27 @@
+<ion-view view-title="Swim Fit">
+	<ion-content class="padding">
+		<button class="button button-calm" ng-click="clearDB()" style="width: 100%">
+			Clear DB
+		</button>
+		<ion-spinner ng-show="loading"></ion-spinner>		
+  		<div class="list">
+  			<div class="item item-divider">
+    			sdfsd
+		  	</div>
+		    <div class="card" ng-repeat="training in trainings">
+	    		<div class="item item-divider">
+	    			<p ng-bind="training.period | trainingPeriod"></p>
+			  	</div>
+			  	<div class="item item-image">			
+			  		<img src="{{training.photoSrc}}"/>
+			  	</div>
+			  	<div class="item item-text-wrap">
+			    	{{training.description}}
+			  	</div>			  	
+			</div>
+			<div class="item item-divider">
+    			sdfsd
+		  	</div>
+		</div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,50 @@
+<ion-view view-title="Add">
+	<ion-content class="padding">
+
+
+			<div class="row">
+		  		<div class="button-bar">
+				  <a class="button button-icon icon ion-ios-timer-outline"></a>
+				  <a class="button button-icon icon ion-ios-paper-outline" ng-click="addTrainingPhoto()"></a>
+				</div>
+			</div>
+
+	  		<div style="width: 100%; margin-bottom:10px;">
+			  	<div class="list">
+				  <label class="item item-input">
+				    <textarea placeholder="Description" ng-model="training.description"></textarea>
+				  </label>
+				</div>
+			</div>
+
+				<div style="margin-bottom:10px;">
+					<button class="button button-calm" ng-click="saveTrainingRecord()" style="width: 100%">
+							Save Training
+					</button>
+				</div>
+			<div ng-show="displayPhotoArea" > 
+				<div style="margin-bottom:10px;">
+					<button class="button button-calm" ng-click="saveTrainingRecord()" style="width: 100%">
+							Save Training
+					</button>
+				</div>
+
+				<div class="list card" style="width:100%;">				 
+				  <div class="item item-divider">
+				    {{training.period}}
+				  </div>
+				  <div class="item item-text-wrap">
+				    {{training.description}}
+				  </div>
+				  <div class="item item-image">			
+				  	<img src="{{training.photoSrc}}" id="previewTrainingPhoto"/>
+				  </div>
+				</div>		
+			</div>		
+
+
+
+		
+	  	
+	</ion-content>
+</ion-view>

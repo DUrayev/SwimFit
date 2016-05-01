@@ -1,7 +1,42 @@
-<ion-view view-title="Dashboard">
-	<ion-content class="padding">
-	  <p>
-	  	Dashboard
-	  </p>
+<ion-view view-title="Swim Fit">
+	<ion-content>
+<!-- 		<button class="button button-calm" ng-click="clearDB()" style="width: 100%">
+			Clear DB
+		</button> -->
+		<ion-spinner ng-show="loading"></ion-spinner>
+
+		<ion-content scroll-event-interval="5">
+			<div ng-repeat="group in trainingsGroups" class="group-item" >
+				<div class="item item-divider" ion-affix data-affix-within-parent-with-class="group-item">
+	    			{{group.weekTitle}}
+			  	</div>
+			  	<div ng-repeat="training in group.trainings" class="training-item" >
+			  		<div class="item list card">
+					    <div class="item item-avatar">
+					      <img src="img/no_userphoto40.png">
+					      <h2>{{training.timestamp | trainingDateTitle}}</h2>
+					      <p>{{training.timestamp | trainingDateDayOfWeek}}</p>
+					    </div>
+
+					    <div class="item item-icon-left">
+					      <i class="icon ion-speedometer calm"></i>
+					      Distance: {{training.distance}} m
+					    </div>
+					    <div class="item item-icon-left">
+					      <i class="icon ion-clipboard calm"></i>
+					      Description: {{training.description}}
+					    </div>
+
+						<div class="item item-divider" ng-show="training.photoSrc">
+			    			<p>{{training.period | trainingPeriod}}</p>
+					  	</div>
+					    <div class="item item-image" ng-show="training.photoSrc">
+					      <img src="{{training.photoSrc}}">
+					    </div>
+					</div>
+			  	</div>
+		  	</div>		
+	  	</ion-content>
+
 	</ion-content>
 </ion-view>
