@@ -1,49 +1,67 @@
 <ion-view view-title="Swim Fit">
-	<ion-content class="padding">
 
-
-		<div class="button-bar">
-		  <a class="button button-icon icon ion-ios-timer-outline"></a>
-		  <a class="button button-icon icon ion-ios-camera-outline" ng-click="addTrainingPhoto()"></a>
-		</div>
-		<ionic-datepicker date="currentDate" min="minDate" max="maxDate" callback="datePickerCallback">
-		    <button class="button button-block button-stable"> {{ currentDate | date:'MMMM/dd/yyyy' }} </button>
-		</ionic-datepicker>
-
-<!-- 	  		<div style="width: 100%; margin-bottom:10px;">
-			  	<div class="list">
-				  <label class="item item-input">
-				    <textarea placeholder="Description" ng-model="training.description"></textarea>
-				  </label>
-				</div>
-			</div> -->
-
-<!-- 				<div style="margin-bottom:10px;">
-					<button class="button button-calm" ng-click="saveTrainingRecord()" style="width: 100%">
-							Save Training
+	<ion-content class="padding" has-bouncing="false">
+		<div class="add-page">
+			<div class="row controls">
+				<div class="col">
+					<button class="button button-calm icon-right ion-ios-close-outline" ng-click="clearForm()">
+							Clear
 					</button>
-				</div> -->
-		<ion-spinner ng-show="loading"></ion-spinner>
-		<div ng-show="displayPhotoArea" > 
-			<div style="margin-bottom:10px;">
-				<button class="button button-calm" ng-click="saveTrainingRecord()" style="width: 100%">
-						Save Training
-				</button>
+				</div>	
+				<div class="col ">	
+					<button class="button button-calm icon-right ion-ios-plus-outline" ng-click="saveTrainingRecord()">
+							Log Swim
+					</button>
+				</div>
 			</div>
 
-			<div class="list card" style="width:100%;">				 
-			  <div class="item item-divider">
-			    {{training.period | trainingPeriod}}
-			  </div>
-			  <div class="item item-text-wrap">
-			    <div style="width: 100%; margin-bottom:10px;">
-				    <textarea style="width: 100%;" placeholder="Description" ng-model="training.description"></textarea>
+			
+
+			<div class="row">
+				<div class="list col">
+		  			<label class="item item-input item-select">
+					    <div class="input-label">
+					      Distance (m)
+					    </div>
+					    <select ng-options="value for value in distances.availableValues"
+					      ng-model="training.distance">
+					  	</select>
+			  		</label>
 				</div>
-			  </div>
-			  <div class="item item-image">			
-			  	<img src="{{training.photoSrc}}" id="previewTrainingPhoto"/>
-			  </div>
-			</div>		
-		</div>		
+			</div>
+
+			<div class="row">
+				<ionic-datepicker date="currentDate" min="minDate" max="maxDate" class="col" callback="datePickerCallback">
+				    <button class="button button-block button-stable icon-right ion-ios-calendar-outline"> {{ currentDate | date:'dd MMMM yyyy' }} </button>
+				</ionic-datepicker>
+			</div>
+
+
+			<div class="row description">
+				<div class="col">
+			    	<textarea class="col" placeholder="Description" ng-model="training.description"></textarea>
+			    </div>
+			</div>
+
+			<div class="row" ng-show="!displayPhotoArea">
+				<div class="button-bar">
+				  <button class="button button-icon icon ion-ios-camera" ng-click="addTrainingPhoto()"></button>
+				</div>
+			</div>
+
+			<ion-spinner ng-show="loading"></ion-spinner>
+			<div ng-show="displayPhotoArea" class="row"> 
+				<div class="col">	
+					<div class="list card col">				 
+					  <div class="item item-divider">
+					    {{training.period | trainingPeriod}}
+					  </div>
+					  <div class="item item-image">			
+					  	<img src="{{training.photoSrc}}" id="previewTrainingPhoto"/>
+					  </div>
+					</div>
+				</div>		
+			</div>	
+		</div>
 	</ion-content>
 </ion-view>

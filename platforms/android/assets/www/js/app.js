@@ -10,12 +10,10 @@ var swimFitApp = angular.module('swimFitApp', [
   'swimFitServices',
   'ionic',
   'ngCordova',
-  'ionic-datepicker'
+  'ionic-datepicker',
+  'ion-affix',
+  'chart.js'
 ]).run(function($ionicPlatform, $cordovaSQLite){
-
-      if (window.StatusBar) {
-        StatusBar.styleDefault();
-      }
   // $ionicPlatform.ready(function() {
   //   alert(window.sqlitePlugin);
   //     db = $cordovaSQLite.openDB({name: "my.db", location: 'default'});

@@ -35,3 +35,62 @@ body {
 .box, .scroll, .slider {
     height: 100%;
 }
+
+ion-content:after {
+    content: "";
+    position: absolute;
+    background-image: url(../img/background.jpg);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+
+.spinner {
+    margin-left: -16px;
+    margin-top: -14px;
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+}
+
+
+.add-page .controls button {
+    width:100%;
+}
+
+.add-page .description textarea {
+    height: 100px;
+    border: 1px #ddd solid;
+}
+
+.statistic-slide {
+    background-color: white;
+}
+
+.statistic-block-values {
+    border-bottom: 1px solid #11c1f3;
+    margin-bottom: 40px;
+    color: #11c1f3;
+}
+.statistic-block-header {
+    margin-bottom: 15px;
+}
+
+.statistic-block-value-total {
+    color: #11c1f3;
+}
+
+.statistic-block-header, .statistic-block-values {
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 20px;
+}
+
+.statistic-total {
+    position: absolute;
+    bottom: 40px;
+}

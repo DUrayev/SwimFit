@@ -7,7 +7,7 @@ var swimFitServices = angular.module('swimFitServices', []);
 swimFitServices.factory('TrainingRecordsService', function($q) {
 
 	var createTableIfNotExists = function(tx) {
-		tx.executeSql('CREATE TABLE IF NOT EXISTS training_records (id integer primary key autoincrement, period integer, photo_src text, description text)');
+		tx.executeSql('CREATE TABLE IF NOT EXISTS training_records (id integer primary key autoincrement, period integer, photo_src text, description text, timestamp text, distance integer)');
 	};
 
 	return {
@@ -16,10 +16,11 @@ swimFitServices.factory('TrainingRecordsService', function($q) {
     			var db = window.openDatabase("Database", "1.0", "Swim Fit", 200000);
 	    		db.transaction(function populateDB(tx) {
 					createTableIfNotExists(tx);
-	             	tx.executeSql('INSERT INTO training_records (period, photo_src, description)' + 
-	     										' VALUES (' + training.period + ', "' + training.photoSrc + '", "' + training.description + '")');
+	             	tx.executeSql('INSERT INTO training_records (period, photo_src, description, timestamp, distance)' + 
+	     										' VALUES (' + (training.period || 2) + ', "' + (training.photoSrc || '') + '", "' + (training.description || '') + '",' + 
+     											' "' + (training.timestamp || '') + '", ' + (training.distance || '0') + ')');
 			    }, function errorCB(err) {
-			        reject("Error processing SQL: "+ err.code);
+			        reject("Error processing SQL: "+ err.message);
 			    }, function successCB() {
 			        resolve('Success');
 			    });
@@ -36,7 +37,9 @@ swimFitServices.factory('TrainingRecordsService', function($q) {
 							id: results.rows.item(i).id,
 							period: results.rows.item(i).period,
 							photoSrc: results.rows.item(i).photo_src,
-							description: results.rows.item(i).description
+							description: results.rows.item(i).description,
+							timestamp: results.rows.item(i).timestamp,
+							distance: results.rows.item(i).distance
 						});
 				    }
 				    resolve(trainingRecords);
@@ -46,10 +49,10 @@ swimFitServices.factory('TrainingRecordsService', function($q) {
 					createTableIfNotExists(tx);
 				    tx.executeSql('SELECT * FROM training_records', [], querySuccess, 
 		    	function errorCB(err) {
-				    reject("Error processing SQL: "+err.code);
+				    reject("Error processing SQL: "+err.message);
 				});
 				}, function errorCB(err) {
-				    reject("Error processing SQL: "+err.code);
+				    reject("Error processing SQL: "+err.message);
 				});
     		});    		
     	}
