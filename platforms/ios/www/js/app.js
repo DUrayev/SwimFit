@@ -5,7 +5,9 @@
 var db = null;
 var swimFitApp = angular.module('swimFitApp', [
   'ngRoute',
-  'swimFitControllers',
+  'addController',
+  'dashboardController',
+  'overviewController',
   'swimFitFilters',
   'swimFitServices',
   'ionic',
@@ -13,34 +15,7 @@ var swimFitApp = angular.module('swimFitApp', [
   'ionic-datepicker',
   'ion-affix',
   'chart.js'
-]).run(function($ionicPlatform, $cordovaSQLite){
-  // $ionicPlatform.ready(function() {
-  //   alert(window.sqlitePlugin);
-  //     db = $cordovaSQLite.openDB({name: "my.db", location: 'default'});
-  //     alert(db);
-  //     $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS people (id integer primary key, firstname text, lastname text)");
-  // });
-});
-
-// swimFitApp.config(['$routeProvider',
-//   function($routeProvider) {
-//     $routeProvider.
-//       when('/overview', {
-//         templateUrl: 'partials/overview.html',
-//         controller: 'OverviewCtrl'
-//       }).
-//       when('/dashboard', {
-//         templateUrl: 'partials/dashboard.html',
-//         controller: 'DashboardCtrl'
-//       }).
-//       when('/add', {
-//         templateUrl: 'partials/add.html',
-//         controller: 'AddCtrl'
-//       }).
-//       otherwise({
-//         redirectTo: '/overview'
-//       });
-//   }]);
+]);
 
 swimFitApp.config(['$stateProvider', '$urlRouterProvider',
   function($stateProvider, $urlRouterProvider) {

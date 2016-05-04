@@ -1,8 +1,26 @@
-<ion-view view-title="Swim Fit">
+<ion-view view-title="Swim Fit" cache-view="false">
 	<ion-content class="padding" has-bouncing="false">
 		<ion-spinner ng-show="loading"></ion-spinner>
 	  	<ion-slide-box on-slide-changed="slideHasChanged($index)">
 	  		<ion-slide>
+		    	<div class="box statistic-slide">
+		    		<div class="">
+		    			<div class="doughnut-chart-wrapper">
+		    				<h3>Distance per day of week</h3>
+							<canvas id="doughnut" class="chart chart-doughnut"
+							  chart-data="doughnut.data" chart-labels="doughnut.labels" legend="true">
+							</canvas> 
+						</div>
+						<div class="bar-chart-wrapper">
+							<h3>Distance per last 6 month</h3>
+							<canvas id="bar" class="chart chart-bar" 
+			    					chart-data="bar.data" chart-labels="bar.labels" chart-series="bar.series">
+							</canvas>
+						</div>
+		    		</div>
+		    	</div>
+		  	</ion-slide>
+		  	<ion-slide>
 		    	<div class="box statistic-slide padding">
 		    		<div class="row statistic-block-header">
 						<div class="col">Today</div>
@@ -40,24 +58,6 @@
 					<div class="row statistic-total">
 						<div class="col"><span class="statistic-block-header">You swam <span> <span class="statistic-block-value-total">{{statistics.totalDistance}} m</div>
 					</div>
-		    	</div>
-		  	</ion-slide>
-		  	<ion-slide>
-		    	<div class="box statistic-slide">
-		    		<div class="">
-		    			<div class="doughnut-chart-wrapper">
-		    				<h3>Distance per day of week</h3>
-							<canvas id="doughnut" class="chart chart-doughnut"
-							  chart-data="doughnut.data" chart-labels="doughnut.labels">
-							</canvas> 
-						</div>
-						<div class="bar-chart-wrapper">
-							<h3>Distance per last 6 month</h3>
-							<canvas id="bar" class="chart chart-bar" 
-			    					chart-data="bar.data" chart-labels="bar.labels" chart-series="bar.series">
-							</canvas>
-						</div>
-		    		</div>
 		    	</div>
 		  	</ion-slide>
 		</ion-slide-box>

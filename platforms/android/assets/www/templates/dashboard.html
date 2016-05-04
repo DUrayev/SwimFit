@@ -16,6 +16,7 @@
 					      <img src="img/no_userphoto40.png">
 					      <h2>{{training.timestamp | trainingDateTitle}}</h2>
 					      <p>{{training.timestamp | trainingDateDayOfWeek}}</p>
+					      <i class="delete-record assertive ion-ios-trash-outline" ng-click="deleteTrainingRecord(training.id)"></i>
 					    </div>
 
 					    <div class="item item-icon-left">

@@ -96,9 +96,26 @@ ion-content:after {
 }
 
 .bar-chart-wrapper, .doughnut-chart-wrapper{
-    padding-top: 30px; 
+    padding-top: 5px; 
 }
 
 .bar-chart-wrapper h3, .doughnut-chart-wrapper h3 {
     text-align: center;
+}
+
+.delete-record {
+    position: absolute;
+    top: 15px;
+    right: 5px;
+    font-size: 30px;
+}
+
+.popup .popup-body {
+    text-align: center;
+}
+
+.popup .popup-buttons .button {
+    border-color: #0a9dc7 !important;
+    background-color: #11c1f3 !important;
+    color: #fff !important;
 }

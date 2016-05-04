@@ -15,7 +15,7 @@ filtersModule.filter('trainingPeriod', function() {
   	if(+input === 0){
   		return '1 Day Training';
   	} else if(+input === 1) {
-		return 'All Week Trainig';
+		  return 'All Week Trainig';
   	} else if(+input === 2) { //No photo selected
   		return '';
   	}
